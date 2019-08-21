@@ -63,7 +63,31 @@ print(s.upper())
 print(s.split(' '))
 
 
+#q4 
+#Lexico#with strings. A string is greater than another string if it comes later in a lexicographically sorted list.
+#Given a word, create a new word by swapping some or all of its
+#characters. This new word must meet two criteria:
+#• It must be greater than the original word
+#• It must be the smallest word that meets the first condition
+#For example, given the word !", the next largest word is "!.
+#Complete the function biggerIsGreater(s) to create and return the new
+#string meeting the criteria. If it is not possible, return no answer.
 
+
+from itertools import permutations
+def biggerIsGreater(Lower_perm):
+    all_permutations=set(permutations(Lower_perm , len(Lower_perm)))
+    List_all_permutations=[]
+    for perm in all_permutations:
+        str_perm=''.join(perm)
+        if str_perm > Lower_perm:
+            List_all_permutations.append(str_perm)
+    if len(List_all_permutations)==0:
+        return 'no answer'
+    return(min(List_all_permutations))
+    
+    
+    
 #q5
 #Create a hangman game following these rules:
 #The game starts by printing a title (choose whatever you like).
