@@ -19,21 +19,21 @@ grid = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 def print_Grid(arr , fixedArr):
     for row in range(9):
         if row%3==0:
-            print('----------------------------------\n')
+            print('-----------------------\n')
         print('|' , end=(' '))
         for col in range (9):
             if fixedArr[row][col]!=0:
-                print('.'+str(arr[row][col]) , end=(' '))
+                print('.'+str(arr[row][col]) , end=(''))
             else:
                 if arr[row][col]==0:
-                    print('  ', end=(' '))                
+                    print('  ', end=(''))                
                 else:
-                    print(' '+str(arr[row][col]) , end=(' '))                
+                    print(' '+str(arr[row][col]) , end=(''))                
             if (col+1)%3==0:
-                print('|' , end=(' '))
+                print('|' , end=(''))
             
         print('\n')
-    print('----------------------------------')
+    print('-----------------------')
 
 
 #return if all field in grid is filled or not
