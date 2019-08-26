@@ -17,8 +17,6 @@ grid = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 
 #this function is to print the grid => game board
 def print_Grid(arr , fixedArr):
-    print(arr)    
-
     for row in range(9):
         if row%3==0:
             print('----------------------------------\n')
@@ -112,7 +110,6 @@ def hint_value(x,y):
     for num in (grid[0][y] ,grid[1][y],grid[2][y],grid[3][y],grid[4][y],grid[5][y],grid[6][y],grid[7][y] ,grid[8][y]):
         if num!=0:
             numbers.append(num)
-    print(numbers)
     for num in [0,1,2,3,4,5,6,7,8,9]:
         if num not in numbers:
             hint_numbers.append(num)
@@ -132,7 +129,6 @@ def isValidCell(x,y ,fixed_copy):
         return False
 
 def isValidNum(num):
-    print(num)
     if num in [0,1,2,3,4,5,6,7,8,9]:
         return True
     else:
@@ -162,7 +158,7 @@ def main():
                 if num==0:
                     grid[x][y]=num
                     print_Grid(grid[:] , fixed_copy)
-                if grid_copy[x][y]==num:
+                elif grid_copy[x][y]==num:
                     grid[x][y]=num
                     print_Grid(grid[:] , fixed_copy)
                 else:
@@ -178,7 +174,9 @@ def main():
         print('Game Over !')
                     
 
-main()                        
+if __name__ == '__main__':
+    main()
+                      
                                 
                     
         
