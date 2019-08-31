@@ -15,6 +15,50 @@ grid = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
+
+#def initialization(number_fix):
+#    test_board=[[0 for i in range(9)] for j in range(9)]
+#    x=random.randint(0,8)
+#    y=random.randint(0,8)
+#    while(True):
+#         value=random.randint(1,9)
+#         if grid[x][y]==0:
+#             if valid(test_board,value,(x,y))==True and (x,y) not in grid :
+#                 grid[x][y]=value
+#                 test_board[x][y]=value
+#                 if check_grid():
+#                     return True
+#                 elif initialization(number_fix):
+#                     return True
+#        break
+#    grid[x][y]=0
+#             
+#    print(grid)
+#def valid(bord,number,position):
+#    x=position[0]
+#    y=position[1]
+#    #checkRow=False, checkClo=False,checkRec=False
+#    #check colum
+#    for i in range(len(bord)):
+#        if bord[i][y] == number and position[0]!=i:
+#            return False
+#    #check row     
+#    for j in range(len(bord[0])):
+#        if bord[x][j] ==number and position[1]!=j:
+#            return False
+#    #checkBox
+#    box_x=x//3
+#    box_y=y//3
+#    
+#    for i in range(box_y*3,box_x*3+3):
+#        for j in range(box_x*3,box_y*3+3):
+#            if bord[i][j]==number and (i,j)!=position:
+#                return False
+#           
+#        
+#    
+#    return True
+
 #this function is to print the grid => game board
 def print_Grid(arr , fixedArr):
     for row in range(9):
@@ -89,8 +133,8 @@ def generate_solvedGrid():
     grid[row][col]=0
             
 
-def removing_number(grid):
-    attempt=50
+def removing_number(grid ,NumberToSolve):
+    attempt=NumberToSolve
     while attempt>0:
         row=random.randint(0,8)
         col=random.randint(0,8)
@@ -135,17 +179,18 @@ def isValidNum(num):
         return False
     
 def main():
+    NumberToSolve=int(input('Please Enter the number of cell you want to solve: '))
     generate_solvedGrid()
     grid_copy=[]
     fixed_copy=[]
     for row in grid[:]:
         grid_copy.append(row[:])    
-    removing_number(grid) 
+    removing_number(grid ,81-NumberToSolve) 
     for row in grid[:]:
         fixed_copy.append(row[:])
     print_Grid(grid[:] , fixed_copy)
     won=False
-    for i in range(55):
+    for i in range(81-NumberToSolve):
         cell=int(input('Please enter the number of cells to fill [0-80] : '))
         x=cell//9
         y=cell%9
