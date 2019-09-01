@@ -66,14 +66,14 @@ class saveText(object):
     
     
     
-text=Text('Hello world' , 'new') 
-saveText(text)
+tt=Text('Hello world' , 'new') 
+saveText(tt)
 print(saveText.get_version(0))
-text.addText('new new')
-saveText(text)
+tt.addText('new new')
+saveText(tt)
 print(saveText.get_version(1))
-text.addText('new new2')
-saveText(text)
-print(text.show())
+tt.addText('new new2')
+saveText(tt)
+print(tt.show())
 print(saveText.get_version(2))
         
