@@ -1,0 +1,13 @@
+select TT.ename,
+       TT.job,
+       TT.sal,
+	   TT.dname
+from (
+     select emp.ename,
+			   emp.job,
+			   emp.sal,
+			   dept.dname,
+            row_number() over(PARTITION by dept.dname order by emp.sal desc) as rn
+     from emp join dept on emp.deptno=dept.deptno  
+     ) as TT
+where TT.rn <= 10 ORDER by TT.dname , TT.sal
